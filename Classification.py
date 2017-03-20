@@ -18,8 +18,11 @@ def add_layer(inputs, in_size, out_size, activation_function=None,):
 
 def compute_accuracy(v_xs, v_ys):
     global prediction
-    y_pre = sess.run(prediction, feed_dict={xs: v_xs})
-    print(sess.run(biases, feed_dict={xs: v_xs})[:,:1])
+    y_pre = sess.run(prediction, feed_dict={xs: v_xs}) #每一次run train_step以后，prediction都被run一遍并且prediction 中的weight 和biase 都要改变
+                                                       #（可以把prediction看成是函数指针）
+                                                       # train一个神经网络可以看成train 每个神经节点中的weight和biase，
+                                                       #当每个weight和biase都固定了并可以使准确率最高，这个神经网络也就train好了
+    print(sess.run(biases, feed_dict={xs: v_xs})[:,:1]) 
     correct_prediction = tf.equal(tf.argmax(y_pre,1), tf.argmax(v_ys,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     result = sess.run(accuracy, feed_dict={xs: v_xs, ys: v_ys})
