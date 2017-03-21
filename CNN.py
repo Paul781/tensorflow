@@ -7,6 +7,8 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 def compute_accuracy(v_xs, v_ys):
     global prediction
     y_pre = sess.run(prediction, feed_dict={xs: v_xs, keep_prob: 1})
+    #这里的prediction 关联着所有layer中的所有weight和bias。实际上这个prediction就是代表着这些weight和bias。
+    #当放入v_xs到prediction的时候就是将所有的layer走一遍看看最终的所有的weight和bias是不是准确的
     correct_prediction = tf.equal(tf.argmax(y_pre,1), tf.argmax(v_ys,1))
     accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))
     result = sess.run(accuracy, feed_dict={xs: v_xs, ys: v_ys, keep_prob: 1})
