@@ -63,7 +63,7 @@ h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
 
 ## fc2 layer ##
-W_fc2 = weight_variable([1024, 10])
+W_fc2 = weight_variable([1024, 10]) #in size is 1024 out size is 10,10 代表10个种类 
 b_fc2 = bias_variable([10])
 prediction = tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
 
