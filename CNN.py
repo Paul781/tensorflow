@@ -23,11 +23,13 @@ def bias_variable(shape):
 def conv2d(x, W):
     # stride [1, x_movement, y_movement, 1]
     # Must have strides[0] = strides[3] = 1
+    #这里的padding是将filter后的image进行padding
     return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding='SAME')
 
 def max_pool_2x2(x):
     # stride [1, x_movement, y_movement, 1]
     # ksize 就是用来pooling的sweeped rectangular window的大小
+    # pooling 的padding是先padding然后再sweep window得到值
     return tf.nn.max_pool(x, ksize=[1,2,2,1], strides=[1,2,2,1], padding='SAME')
 
 # define placeholder for inputs to network
