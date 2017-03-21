@@ -28,7 +28,6 @@ def conv2d(x, W):
 def max_pool_2x2(x):
     # stride [1, x_movement, y_movement, 1]
     # ksize 就是用来pooling的sweeped rectangular window的大小
-    # padding is because the indices also take into consideration the padding values not for the image itself
     return tf.nn.max_pool(x, ksize=[1,2,2,1], strides=[1,2,2,1], padding='SAME')
 
 # define placeholder for inputs to network
