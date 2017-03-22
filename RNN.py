@@ -33,7 +33,7 @@ y = tf.placeholder(tf.float32, [None, n_classes])
 
 # Define weights
 weights = {
-    # (28, 128)
+    # (28, 128) input， output
     # rnn cell的input和output各有一个hidden layer 夹着它
     'in': tf.Variable(tf.random_normal([n_inputs, n_hidden_units])),
     # (128, 10)
