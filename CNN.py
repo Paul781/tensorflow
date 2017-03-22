@@ -86,7 +86,7 @@ else:
 sess.run(init)
 
 for i in range(1000):
-    batch_xs, batch_ys = mnist.train.next_batch(100)
+    batch_xs, batch_ys = mnist.train.next_batch(100) #batch_ys 是100 行， 10 列的数组，多少个sample就有多少行，所以行数可以看成n_sample
     sess.run(train_step, feed_dict={xs: batch_xs, ys: batch_ys, keep_prob: 0.5})
     if i % 50 == 0:
         print(compute_accuracy(
