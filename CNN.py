@@ -59,7 +59,7 @@ h_pool2 = max_pool_2x2(h_conv2)                                         # output
 ## fc1 layer ##
 W_fc1 = weight_variable([7*7*64, 1024])
 b_fc1 = bias_variable([1024])
-# [n_samples, 7, 7, 64] ->> [n_samples, 7*7*64]
+# [n_samples, 7, 7, 64] ->> [n_samples, 7*7*64] # reshape这个函数会保证变换前后的数据总量不变即n_sample*7*7*64（把[]中所有数字相乘）
 h_pool2_flat = tf.reshape(h_pool2, [-1, 7*7*64])
 h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
 h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
