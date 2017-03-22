@@ -20,8 +20,7 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 # hyperparameters
 lr = 0.001 #learning rate
 training_iters = 100000 #training step
-batch_size = 128
-
+batch_size = 128 #从练习数据集里面取多少个数据作为train data
 n_inputs = 28   # MNIST data input (img shape: 28*28)
 n_steps = 28    # time steps
 n_hidden_units = 128   # neurons in hidden layer
