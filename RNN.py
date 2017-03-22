@@ -70,7 +70,7 @@ def RNN(X, weights, biases):
         lstm_cell = tf.nn.rnn_cell.BasicLSTMCell(n_hidden_units, forget_bias=1.0, state_is_tuple=True)
     else:
         lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden_units)
-    # lstm cell is divided into two parts (c_state, h_state)
+    # lstm cell is divided into two parts (c_state, m_state)
     init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32)
     # You have 2 options for following step.
     # 1: tf.nn.rnn(cell, inputs);
