@@ -65,6 +65,7 @@ def RNN(X, weights, biases):
     ##########################################
 
     # basic LSTM Cell.
+    #forget_bias=1.0 的意思就是先不要打开forget的gate即不忘记之前的state
     if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[0]) < 1:
         lstm_cell = tf.nn.rnn_cell.BasicLSTMCell(n_hidden_units, forget_bias=1.0, state_is_tuple=True)
     else:
