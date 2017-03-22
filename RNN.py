@@ -53,8 +53,7 @@ def RNN(X, weights, biases):
 
     # transpose the inputs shape from
     # X ==> (128 batch * 28 steps, 28 inputs)
-    X = tf.reshape(X, [-1, n_inputs])
-
+    X = tf.reshape(X, [-1, n_inputs])#-1 表示自动补齐，使得和原来array中的总数一致
     # into hidden
     # X_in = (128 batch * 28 steps, 128 hidden)
     X_in = tf.matmul(X, weights['in']) + biases['in']
