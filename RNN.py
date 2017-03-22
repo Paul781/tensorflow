@@ -70,8 +70,7 @@ def RNN(X, weights, biases):
     else:
         lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden_units)
     # lstm cell is divided into two parts (c_state, h_state)
-    init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32)
-
+    init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32) #每个state对应一个时间点的x input，一共有batch_size个时间点的x input，这些input组成一个x的序列
     # You have 2 options for following step.
     # 1: tf.nn.rnn(cell, inputs);
     # 2: tf.nn.dynamic_rnn(cell, inputs).
