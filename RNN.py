@@ -28,7 +28,7 @@ n_hidden_units = 128   # neurons in hidden layer 自己定的
 n_classes = 10      # MNIST classes (0-9 digits)
 
 # tf Graph input
-x = tf.placeholder(tf.float32, [None, n_steps, n_inputs])
+x = tf.placeholder(tf.float32, [None, n_steps, n_inputs]) #行数为n_input,列数为n_step,none 代表 n_sample
 y = tf.placeholder(tf.float32, [None, n_classes])
 
 # Define weights
