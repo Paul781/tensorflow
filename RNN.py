@@ -115,7 +115,9 @@ with tf.Session() as sess:
     step = 0
     while step * batch_size < training_iters:
         batch_xs, batch_ys = mnist.train.next_batch(batch_size)
-        batch_xs = batch_xs.reshape([batch_size, n_steps, n_inputs]) #batch_size means n_sample,n_input is the column number, n_step is the row number
+        batch_xs = batch_xs.reshape([batch_size, n_steps, n_inputs]) 
+        #batch_size means n_sample,n_input is the column number, n_step is the row number
+        #batch_xs.shape is (batch_size,28*28)
         sess.run([train_op], feed_dict={
             x: batch_xs,
             y: batch_ys,
