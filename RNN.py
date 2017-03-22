@@ -20,11 +20,11 @@ mnist = input_data.read_data_sets('MNIST_data', one_hot=True)
 # hyperparameters
 lr = 0.001 #learning rate
 training_iters = 100000 #training step
-batch_size = 128 #从练习数据集里面取多少个数据作为train data
+batch_size = 128 #从练习数据集里面取多少个数据作为train data，自己定的
 n_inputs = 28   # MNIST data input (img shape: 28*28) 
                 #一张Image每次只扫描一行作为一个neuron的input，每次扫描的顺序就是不同input的次序
 n_steps = 28    # time steps
-n_hidden_units = 128   # neurons in hidden layer
+n_hidden_units = 128   # neurons in hidden layer 自己定的
 n_classes = 10      # MNIST classes (0-9 digits)
 
 # tf Graph input
