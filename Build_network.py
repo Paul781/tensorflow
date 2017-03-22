@@ -4,6 +4,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 def add_layer(inputs, in_size, out_size, activation_function=None):
+     # weight矩阵中的input和output 可以看成input layer有多少神经元，以及output layer 有多少神经元（只有一个hidden layer）
     Weights = tf.Variable(tf.random_normal([in_size, out_size]))
     biases = tf.Variable(tf.zeros([1, out_size]) + 0.1)
     Wx_plus_b = tf.matmul(inputs, Weights) + biases
