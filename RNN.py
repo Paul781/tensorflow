@@ -35,7 +35,7 @@ y = tf.placeholder(tf.float32, [None, n_classes])
 weights = {
     # (28, 128) input， output
     # rnn cell的input和output各有一个hidden layer 夹着它
-    'in': tf.Variable(tf.random_normal([n_inputs, n_hidden_units])),
+    'in': tf.Variable(tf.random_normal([n_inputs, n_hidden_units])), #生成一个（n_inputs,n_hidden_units）的矩阵 n_inputs 为row number
     # (128, 10)
     'out': tf.Variable(tf.random_normal([n_hidden_units, n_classes]))
 }
