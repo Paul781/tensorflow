@@ -36,7 +36,9 @@ def max_pool_2x2(x):
 
 # define placeholder for inputs to network
 xs = tf.placeholder(tf.float32, [None, 784])   # 28x28
-ys = tf.placeholder(tf.float32, [None, 10])
+ys = tf.placeholder(tf.float32, [None, 10]) #The first dimension of the placeholder is None, meaning we can have any number of rows.
+                                            #The second dimension is fixed at 10, meaning each row needs to have 10 columns of data.
+
 keep_prob = tf.placeholder(tf.float32)
 x_image = tf.reshape(xs, [-1, 28, 28, 1])
 # print(x_image.shape)  # [n_samples, 28,28,1]
