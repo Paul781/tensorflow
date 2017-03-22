@@ -84,15 +84,15 @@ def RNN(X, weights, biases):
 
     # hidden layer for output as the final results
     #############################################
-    # results = tf.matmul(final_state[1], weights['out']) + biases['out']
+    results = tf.matmul(final_state[1], weights['out']) + biases['out']
 
     # # or
     # unpack to list [(batch, outputs)..] * steps
-    if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[0]) < 1:
-        outputs = tf.unpack(tf.transpose(outputs, [1, 0, 2]))    # states is the last outputs
-    else:
-        outputs = tf.unstack(tf.transpose(outputs, [1,0,2]))
-    results = tf.matmul(outputs[-1], weights['out']) + biases['out']    # shape = (128, 10)
+    #if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[0]) < 1:
+        #outputs = tf.unpack(tf.transpose(outputs, [1, 0, 2]))    # states is the last outputs
+    #else:
+        #outputs = tf.unstack(tf.transpose(outputs, [1,0,2]))
+    #results = tf.matmul(outputs[-1], weights['out']) + biases['out']    # shape = (128, 10)
 
     return results
 
