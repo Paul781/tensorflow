@@ -66,8 +66,8 @@ class LSTMRNN(object):
             lstm_cell, self.l_in_y, initial_state=self.cell_init_state, time_major=False)
 
     def add_output_layer(self):
-        # shape = (batch * steps, cell_size)
-        l_out_x = tf.reshape(self.cell_outputs, [-1, self.cell_size], name='2_2D')
+        # cell_outputs shape is (batch,n_step,cell_size)
+        l_out_x = tf.reshape(self.cell_outputs, [-1, self.cell_size], name='2_2D')# shape = (batch * steps, cell_size)
         Ws_out = self._weight_variable([self.cell_size, self.output_size])
         bs_out = self._bias_variable([self.output_size, ])
         # shape = (batch * steps, output_size)
