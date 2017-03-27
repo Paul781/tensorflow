@@ -83,7 +83,8 @@ def RNN(X, weights, biases):
     # dynamic_rnn receive Tensor (batch, steps, inputs) or (steps, batch, inputs) as X_in.
     # Make sure the time_major is changed accordingly.
     outputs, final_state = tf.nn.dynamic_rnn(lstm_cell, X_in, initial_state=init_state, time_major=False)
-    #实际上，上面这个函数里面也有递归，每一次time step都要在一个cell里面递归一次，28个n_step结束后才算一个batch结束。一共有batch_size个cell，这个cell结束后state传给下一个cell
+    #实际上，上面这个函数里面也有递归，每一次time step都要在一个cell里面递归一次，28个n_step结束后才算一个batch结束。
+    #一共有batch_size个cell，这个cell结束后state传给下一个cell。这些batch_size个cell可以看成一个整体
     # http://r2rt.com/styles-of-truncated-backpropagation.html
     # hidden layer for output as the final results
     #############################################
