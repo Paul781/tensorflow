@@ -66,12 +66,14 @@ def RNN(X, weights, biases):
 
     # basic LSTM Cell.
     #forget_bias=1.0 的意思就是先不要打开forget的gate即不忘记之前的state
+    #n_hidden_unit 是lstm cell中的神经元有多少个
     if int((tf.__version__).split('.')[1]) < 12 and int((tf.__version__).split('.')[0]) < 1:
         lstm_cell = tf.nn.rnn_cell.BasicLSTMCell(n_hidden_units, forget_bias=1.0, state_is_tuple=True)
     else:
         lstm_cell = tf.contrib.rnn.BasicLSTMCell(n_hidden_units)
     # lstm cell is divided into two parts (c_state, m_state)
     init_state = lstm_cell.zero_state(batch_size, dtype=tf.float32)
+    #为每个batch set一个init_state
     # You have 2 options for following step.
     # 1: tf.nn.rnn(cell, inputs);
     # 2: tf.nn.dynamic_rnn(cell, inputs).
@@ -81,7 +83,7 @@ def RNN(X, weights, biases):
     # dynamic_rnn receive Tensor (batch, steps, inputs) or (steps, batch, inputs) as X_in.
     # Make sure the time_major is changed accordingly.
     outputs, final_state = tf.nn.dynamic_rnn(lstm_cell, X_in, initial_state=init_state, time_major=False)
-
+    #实际上，上面这个函数里面也有递归，每一次time step都要在一个cell里面递归一次，28个n_step结束后才算一个batch结束，还要进行下一个batch的递归
     # hidden layer for output as the final results
     #############################################
     results = tf.matmul(final_state[1], weights['out']) + biases['out']
