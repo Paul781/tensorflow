@@ -118,7 +118,7 @@ def decoder(x):
 """
 
 # Construct model
-encoder_op = encoder(X)
+encoder_op = encoder(X) #encode的过程就是发现最精华feature的过程，同时通过激励函数sigmoid 进行分类（图片压缩到几个分类中）
 decoder_op = decoder(encoder_op)
 
 # Prediction
