@@ -147,7 +147,7 @@ with tf.Session() as sess:
     for epoch in range(training_epochs):
         # Loop over all batches
         for i in range(total_batch):
-            batch_xs, batch_ys = mnist.train.next_batch(batch_size)  # max(x) = 1, min(x) = 0
+            batch_xs, batch_ys = mnist.train.next_batch(batch_size)  # batch_xs 最大值max(x) = 1, 最小值min(x) = 0
             # Run optimization op (backprop) and cost op (to get loss value)
             _, c = sess.run([optimizer, cost], feed_dict={X: batch_xs})
         # Display logs per epoch step
