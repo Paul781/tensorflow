@@ -12,7 +12,7 @@ mnist = input_data.read_data_sets("/tmp/data/", one_hot=False)
 # Visualize decoder setting
 # Parameters
 learning_rate = 0.01
-training_epochs = 5
+training_epochs = 5 # 五组训练
 batch_size = 256
 display_step = 1
 examples_to_show = 10
