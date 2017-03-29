@@ -6,9 +6,7 @@ import matplotlib.pyplot as plt
 
 # Import MNIST data
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=False)
-
-
+mnist = input_data.read_data_sets("/tmp/data/", one_hot=False) #A one-hot vector is a vector which is 0 in most dimensions, and 1 in a single dimension 代表数字
 # Visualize decoder setting
 # Parameters
 learning_rate = 0.01
